@@ -26,13 +26,7 @@ router.post("/backoffice/create", async (req, res) => {
   const user = await Account.find();
   const questions = await Account.find();
 
-  // for (let i = 0; i < questions.length; i++) {
-  //   if(questions[i])
-
-  // }
   try {
-    // const questions = await Question.find({ id: req.fields._id });
-    // const user = await Form.find({});
     const newForm = new Form({
       title: req.fields.title,
       slug: slugify(req.fields.title, {
@@ -54,13 +48,40 @@ router.post("/backoffice/create", async (req, res) => {
 
 router.post("/form/update/answers/:id", async (req, res) => {
   try {
-    const questionToUpdate = await Question.findById(req.params.id);
-    questionToUpdate.answers.push(req.fields);
-    await questionToUpdate.save();
-    res.json(questionToUpdate);
-    console.log(questionToUpdate);
+    const FormToUpdate = await Form.findById(req.params.id);
+    console.log("BEFORE UPDATE:", FormToUpdate);
+    console.log("REQ FIELDS:", req.fields);
+    for (let i = 0; i < FormToUpdate.questions.length; i++) {
+      if (FormToUpdate.questions[i]._id === req.fields.question_id) {
+        FormToUpdate.questions[i].answers.push(req.fields);
+      }
+    }
+    await FormToUpdate.save();
+    res.json(FormToUpdate);
+    console.log("AFTER UPDATE:", FormToUpdate);
   } catch (error) {
     console.log(error.response);
+  }
+});
+
+router.get("/backoffice/get-form-to-update/:id", async (req, res) => {
+  try {
+    const getForm = await Form.findById(req.params.id);
+    console.log("getForm:", getForm);
+    res.json(getForm);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+router.post("/backoffice/backoffice/update-form/:id", async (req, res) => {
+  try {
+    const updateForm = await Form.findByIdAndUpdate(req.params.id, req.fields);
+    res.json(updateForm);
+    console.log("REQ FIELDS:", req.fields);
+    console.log("RES", updateForm);
+  } catch (error) {
+    console.log(error.message);
   }
 });
 

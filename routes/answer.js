@@ -20,6 +20,7 @@ router.post("/form/send/", async (req, res) => {
       form_id: req.fields.form_id,
       question_id: req.fields.question_id,
       body: req.fields.body,
+      uuid: req.fields.uuid,
     });
     await newAnswer.save();
     res.json(newAnswer);
@@ -32,8 +33,6 @@ router.post("/form/restart", async (req, res) => {
   try {
     for (let i = 0; i < req.fields.ids.length; i++) {
       const answersToDelete = await Answer.findByIdAndDelete(req.fields.ids[i]);
-      console.log("req.fields[i]:", req.fields.ids[i]);
-      console.log("req.fields.ids.length:", req.fields.ids.length);
     }
     res.json("Deleted succesfully");
   } catch (error) {
@@ -42,12 +41,11 @@ router.post("/form/restart", async (req, res) => {
 });
 
 router.get("/form/get/answers/:id", async (req, res) => {
-  const answers = await Form.find({ form_id: req.params.id });
-  res.json(answers);
-});
-router.get("/form/get/answers-per-question/:id", async (req, res) => {
-  const answers = await Answer.find({ question_id: req.params.id });
-  res.json(answers);
+  const form = await Form.find({ _id: req.params.id });
+  const answers = await Answer.find({ form_id: req.params.id });
+  console.log("ANSWERS", form);
+  console.log("ANSWERS", answers);
+  res.json({ form: form, answers: answers });
 });
 
 module.exports = router;

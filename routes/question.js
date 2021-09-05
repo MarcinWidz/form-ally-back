@@ -23,6 +23,40 @@ router.post("/backoffice/create/questions", async (req, res) => {
   }
 });
 
+router.delete("/backoffice/delete/:id", async (req, res) => {
+  try {
+    await Question.findByIdAndDelete(req.params.id);
+    res.json("deleted");
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+router.post("/backoffice/delete-all/", async (req, res) => {
+  try {
+    console.log("REQ FIELDS:", req.fields.questionsData);
+    for (let i = 0; i < req.fields.questionsData.length; i++) {
+      console.log("req.fields[i]", req.fields.questionsData[i]._id);
+      await Question.findByIdAndDelete(req.fields.questionsData[i]._id);
+    }
+
+    res.json("deleted");
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+router.put("/backoffice/up/:id", async (req, res) => {
+  try {
+    const all = await Question.find();
+    const question = await Question.findById(req.params.id);
+    // console.log(all);
+    res.json(question);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 router.get("/backoffice/get/questions/", async (req, res) => {
   try {
     const questions = await Question.find();
