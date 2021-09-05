@@ -2,12 +2,13 @@ const express = require("express");
 const formidableMiddleware = require("express-formidable");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 app.use(formidableMiddleware());
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/tell-me-more", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -23,6 +24,8 @@ app.use(form);
 const questions = require("./routes/question");
 app.use(questions);
 
-app.listen(3000, () => {
+app.all("/*", (req, res) => res.json("Page not found"));
+
+app.listen(process.env.PORT, () => {
   console.log("Server has started");
 });
