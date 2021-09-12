@@ -1,0 +1,103 @@
+.bigContainer {
+  height: 100vh;
+  width: 100vw;
+}
+.element {
+  background-color: #eaf9ec;
+  width: 800px;
+  border-radius: 15px;
+  margin: 15px auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.typeContainer {
+  margin-bottom: 10px;
+}
+
+.title-render {
+  font-size: 32px;
+  padding: 20px;
+}
+.elementsContainer {
+  display: flex;
+  margin: 20px;
+}
+
+.question-body {
+  font-size: 24px;
+  padding: 10px;
+  margin-top: 10px;
+  color: #62c167;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.answer-body-div {
+  background-color: white !important;
+  width: 600px;
+  border-radius: 15px;
+  padding: 5px;
+  display: flex;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.text-component-div {
+  background-color: rgb(246, 186, 93);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 10px;
+}
+.note-component-div {
+  background-color: rgb(241, 160, 154);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 10px;
+}
+.yes-component-div {
+  background-color: rgb(121, 165, 217);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 10px;
+}
+.email-component-div {
+  background-color: rgb(154, 206, 138);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 10px;
+}
+
+.typeContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.answer-body {
+  font-size: 18px;
+  margin: 10px 0;
+  padding: 10px;
+  color: #333;
+}
