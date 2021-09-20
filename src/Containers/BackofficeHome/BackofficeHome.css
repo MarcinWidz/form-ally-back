@@ -1,0 +1,28 @@
+.container {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.add-button {
+  font-size: 32px;
+  border: solid 2px black;
+  width: 350px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: poiner;
+  margin: 10px;
+  background: linear-gradient(
+    270deg,
+    #62c188 0%,
+    rgba(98, 193, 136, 0.5) 98.55%
+  );
+  border-radius: 10px;
+  color: white;
+  border: none;
+}

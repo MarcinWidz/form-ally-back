@@ -1,0 +1,92 @@
+.question-component {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.input-field {
+  width: 400px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  outline: none;
+  padding-left: 20px;
+}
+
+.addQuestion {
+  cursor: pointer;
+  background-color: #62c167;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 9px;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 100px;
+  border: none;
+}
+
+.text-component-div {
+  background-color: rgb(246, 186, 93);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 10px;
+}
+.note-component-div {
+  background-color: rgb(241, 160, 154);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 10px;
+}
+.yes-component-div {
+  background-color: rgb(121, 165, 217);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 10px;
+}
+.email-component-div {
+  background-color: rgb(154, 206, 138);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 10px;
+}
+
+.delete {
+  cursor: pointer;
+  background-color: white;
+  color: #62c167;
+  padding: 0 9px;
+  font-size: 18px;
+  border-radius: 5px;
+  font-weight: 700;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  border: solid 1px #62c167;
+}
+
+.icon {
+  margin: 0 10px;
+}

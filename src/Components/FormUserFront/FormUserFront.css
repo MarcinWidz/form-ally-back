@@ -1,0 +1,13 @@
+.form-consulter {
+  color: #0e401c;
+}
+
+.formUserFrontDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.external {
+  font-size: 32px;
+  color: #62c167;
+}
